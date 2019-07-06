@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnModificar; */
 
     private Button btnMove;
+    private Button btnMove2;
 
 
     @Override
@@ -31,23 +32,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-    }
-
-    private void moveToAlimentos() {
-        Intent intent = new Intent(MainActivity.this, Alimentos.class);
-        startActivity(intent);
-    }
-
-
-    private Button btnMove2;
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
         btnMove2 = findViewById(R.id.btn_2);
 
         btnMove2.setOnClickListener(new View.OnClickListener() {
@@ -56,11 +40,22 @@ public class MainActivity extends AppCompatActivity {
                 moveToRefeicoes();
             }
         });
+
     }
+
+
+    /** botao alimentos */
+
+    private void moveToAlimentos() {
+        Intent intent = new Intent(MainActivity.this, Alimentos.class);
+        startActivity(intent);
+    }
+
+/** botao refeicoes */
+
 
     private void moveToRefeicoes() {
         Intent intent = new Intent(MainActivity.this, Refeicoes.class);
         startActivity(intent);
     }
-/** asd*/
 }
