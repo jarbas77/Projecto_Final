@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class Alimentos extends AppCompatActivity {
-
+/*test*/
     private Button btnMove;
 
     @Override
