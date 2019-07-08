@@ -15,4 +15,11 @@
         android:text="homepage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        layout="@layout/content_list"
+        android:layout_width="410dp"
+        android:layout_height="622dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="109dp" />
 </android.support.constraint.ConstraintLayout>
