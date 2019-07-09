@@ -5,7 +5,9 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +24,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WS extends AsyncTask<Void, String, Void> {
-    public ListActivity activity;
+
+    public Alimentos activity;
     public ArrayList<HashMap <String, String>> _listaAlimento;
     public ListView _lv;
     private ProgressDialog pDialog;
@@ -38,16 +41,22 @@ public class WS extends AsyncTask<Void, String, Void> {
         HttpURLConnection conexao;
         InputStream is;
         String jsonStr;
-
+        Log.d("banana","maca2");
         try {
             //URL _endpoint = new URL("http://localhost/ws/public/api/tarefa");
-            URL _endpoint = new URL("http://10.0.2.2/meals/public/api/alimentos");
-            conexao = (HttpURLConnection) _endpoint.openConnection();
+            URL _endpoint = new URL("http://192.168.7.1/meals/public/api/alimentos");
+            Log.d("banana","con");
+            conexao = (HttpURLConnection)_endpoint.openConnection();
             conexao.setRequestMethod("GET");
+
+
+
             conexao.setReadTimeout(15000);
             conexao.setConnectTimeout(15000);
+            conexao.setRequestProperty("Accept", "application/json");
+            Log.d("banana","con1");
             conexao.connect();
-
+            Log.d("banana","maca3");
             //aqui deve estar o código de envio dos dados (quando ocorre)
 
             int _httpCode = conexao.getResponseCode();
@@ -83,8 +92,8 @@ public class WS extends AsyncTask<Void, String, Void> {
                         alimento.put("gordura", String.valueOf(godura));
                         alimento.put("acucar", String.valueOf(acucar));
                         alimento.put("protaina", String.valueOf(protaina));
-
                         _dados.add(alimento);
+                        Log.d("banana","maca4");
                     }
                 } catch (final JSONException e) {
                     Log.d("Erro", "doInBackground: " + e.getMessage());
@@ -123,9 +132,16 @@ public class WS extends AsyncTask<Void, String, Void> {
     @Override
     protected void onPostExecute(Void result) {
         super.onPostExecute(result);
-
+        Log.d("banana","post");
         // Dismiss the progress dialog
-        if (pDialog.isShowing())
-            pDialog.dismiss();
+       // if (pDialog.isShowing())
+         //   pDialog.dismiss();
+
+
+
+        ListAdapter adapter = new SimpleAdapter(activity, _listaAlimento, R.layout.listview_row,
+                new String[]{"idAlim", "nome", "valenergetico", "gordura", "acucar", "protaina"},
+                new int[]{R.id.tv_idAlimentos, R.id.tv_NomeAli,R.id.tv_ValEnerg, R.id.tv_Gordura, R.id.tv_Acucar, R.id.tv_Prota});
+        _lv.setAdapter(adapter);
     }
 }

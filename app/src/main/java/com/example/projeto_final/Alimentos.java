@@ -3,6 +3,7 @@ package com.example.projeto_final;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -38,22 +39,16 @@ public class Alimentos extends AppCompatActivity {
 
        // View includeLayout = findViewById(R.id.uuu);
         _server = new WS();
-        HashMap<String, String> alimento = _server._dados;
+       // HashMap<String, String> alimento = _server._dados;
 
         //alimento.idAlim
-
-
-
-        //_server.activity = ListActivity.this;
+        _server.activity = Alimentos.this;
         _server._listaAlimento = new ArrayList<>();
         _server._lv = findViewById(R.id.list_view_test);
-
         _server.execute();
 
-        ListAdapter adapter = new SimpleAdapter(this, _listaAlimento, R.layout.listview_row,
-                new String[]{"idAlim", "nome", "valenergetico", "gordura", "acucar", "protaina"},
-                new int[]{R.id.tv_idAlimentos, R.id.tv_NomeAli,R.id.tv_ValEnerg, R.id.tv_Gordura, R.id.tv_Acucar, R.id.tv_Prota});
-        _lv.setAdapter(adapter);
+        Log.d("banana","maca");
+
 
     }
 
