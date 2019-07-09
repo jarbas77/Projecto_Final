@@ -23,7 +23,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class WS extends AsyncTask<Void, String, Void> {
+/**public class WS extends AsyncTask<Void, String, Void> {
+
+    public WSResposta resposta;
 
     public Alimentos activity;
     public ArrayList<HashMap <String, String>> _listaAlimento;
@@ -144,4 +146,85 @@ public class WS extends AsyncTask<Void, String, Void> {
                 new int[]{R.id.tv_idAlimentos, R.id.tv_NomeAli,R.id.tv_ValEnerg, R.id.tv_Gordura, R.id.tv_Acucar, R.id.tv_Prota});
         _lv.setAdapter(adapter);
     }
+
+
+}*/
+
+public class WS extends AsyncTask<Void, Void, String> {
+    private String url;
+
+    public WSResposta resposta;
+
+    public WS(String url) {
+        this.url = url;
+    }
+
+    @Override
+    protected String doInBackground(Void... voids) {
+        HttpURLConnection conexao;
+        InputStream is;
+        String jsonStr = null;
+
+        try {
+            URL _endpoint = new URL("http://192.168.7.1/meals/public/api/alimentos");
+            conexao = (HttpURLConnection) _endpoint.openConnection();
+            conexao.setRequestMethod("GET");
+            conexao.setReadTimeout(15000);
+            conexao.setConnectTimeout(15000);
+            conexao.setRequestProperty("Accept", "application/json");
+            Log.d("banana2","antes");
+            //É SUPOSTO IR BUSCAR UM ID?//
+            conexao.connect();
+            Log.d("banana2","conecgtou");
+            // Obter código da resposta
+            int _httpCode = conexao.getResponseCode();
+            if (_httpCode != HttpURLConnection.HTTP_BAD_REQUEST) {
+                is = conexao.getInputStream();
+            } else {
+                is = conexao.getErrorStream();
+            }
+
+            // Ler resposta
+            jsonStr = inputStreamToString(is);
+
+            is.close();
+            conexao.disconnect();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Devolver resposta
+        return jsonStr;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+
+        if (resposta != null) {
+            resposta.respostaRecebida(result);
+        }
+    }
+
+    private static String inputStreamToString(InputStream is) {
+        StringBuffer buffer = new StringBuffer();
+        try {
+            BufferedReader br;
+            String linha;
+
+            br = new BufferedReader(new InputStreamReader(is));
+            while ((linha = br.readLine()) != null) {
+                buffer.append(linha);
+            }
+
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return buffer.toString();
+    }
 }
+
