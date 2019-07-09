@@ -9,11 +9,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    /**BaseDeDados db;
-    EditText etNome, etVE, etGordura, etAcucar, etProtaina;
-    Button btnEliminar;
-    Button btnModificar; */
-
     private Button btnMove;
     private Button btnMove2;
 

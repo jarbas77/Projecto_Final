@@ -20,6 +20,7 @@ public class Alimentos extends AppCompatActivity {
     private Button btnMove;
     private ArrayList<HashMap<String, String>> _listaAlimento;
     private ListView _lv;
+    private ListView lvConteudo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,23 +36,18 @@ public class Alimentos extends AppCompatActivity {
             }
         });
 
-
-    }
-
-    private void moveToActivity_main() {
-        Intent intent = new Intent (Alimentos.this,MainActivity.class);
-        startActivity(intent);
-
+       // View includeLayout = findViewById(R.id.uuu);
         _server = new WS();
         HashMap<String, String> alimento = _server._dados;
 
-        alimento.idAlim
+        //alimento.idAlim
 
 
 
         //_server.activity = ListActivity.this;
-        _server._listaAliemento = new ArrayList<>();
-        _server._lv = findViewById(R.id.list_view_conteudo);
+        _server._listaAlimento = new ArrayList<>();
+        _server._lv = findViewById(R.id.list_view_test);
+
         _server.execute();
 
         ListAdapter adapter = new SimpleAdapter(this, _listaAlimento, R.layout.listview_row,
@@ -59,8 +55,11 @@ public class Alimentos extends AppCompatActivity {
                 new int[]{R.id.tv_idAlimentos, R.id.tv_NomeAli,R.id.tv_ValEnerg, R.id.tv_Gordura, R.id.tv_Acucar, R.id.tv_Prota});
         _lv.setAdapter(adapter);
 
-
     }
 
+    private void moveToActivity_main() {
+        Intent intent = new Intent (Alimentos.this,MainActivity.class);
+        startActivity(intent);
 
+    }
 }

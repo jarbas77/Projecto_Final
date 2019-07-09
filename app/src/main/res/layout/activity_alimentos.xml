@@ -17,9 +17,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <include
+        android:id="@+id/uuu"
         layout="@layout/content_list"
-        android:layout_width="410dp"
-        android:layout_height="622dp"
+        android:layout_width="425dp"
+        android:layout_height="124dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="109dp" />
+        tools:layout_editor_absoluteY="607dp" />
+
+    <ListView
+        android:id="@+id/list_view_test"
+        android:layout_width="395dp"
+        android:layout_height="535dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="64dp" />
 </android.support.constraint.ConstraintLayout>

@@ -4,6 +4,8 @@ import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,8 +21,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class WS extends AsyncTask<Void, Void, Void> {
+public class WS extends AsyncTask<Void, String, Void> {
     public ListActivity activity;
+    public ArrayList<HashMap <String, String>> _listaAlimento;
+    public ListView _lv;
     private ProgressDialog pDialog;
     public ArrayList<HashMap<String, String>> _dados;
 
