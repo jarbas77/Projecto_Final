@@ -25,6 +25,7 @@ public class Alimentos extends AppCompatActivity {
 /*test*/
     private WS _server;
     private Button btnMove;
+    private Button btnEditar;
     private ArrayList<HashMap<String, String>> _listaAlimentos = new ArrayList<>();
     private ListView _lv;
     private ListView lvConteudo;
@@ -36,6 +37,9 @@ public class Alimentos extends AppCompatActivity {
 
         btnMove = findViewById(R.id.btn_3);
 
+        btnEditar = findViewById(R.id.btn_editCliente);
+
+
 
         lvConteudo = findViewById(R.id.list_view_test);
 
@@ -43,6 +47,12 @@ public class Alimentos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 moveToActivity_main();
+            }
+        });
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToactivity_editar_alimentos();
             }
         });
 
@@ -103,9 +113,9 @@ public class Alimentos extends AppCompatActivity {
                 String id = obj.getString("idAlim");
                 String nome = obj.getString("alNome");
                 String valEnergetico = obj.getString("alValEnergetico");
-                String godura = obj.getString("alGodura");
+                String godura = obj.getString("alGordura");
                 String acucar = obj.getString("alAcucar");
-                String protaina = obj.getString("alProtaina");
+                String protaina = obj.getString("alProteina");
 
 
                 //lista de propriedades
@@ -115,7 +125,7 @@ public class Alimentos extends AppCompatActivity {
                 alimento.put("valenergetico", String.valueOf(valEnergetico));
                 alimento.put("gordura", String.valueOf(godura));
                 alimento.put("acucar", String.valueOf(acucar));
-                alimento.put("protaina", String.valueOf(protaina));
+                alimento.put("proteina", String.valueOf(protaina));
                 _listaAlimentos.add(alimento);
                 Log.d("banana","maca4");
             }
@@ -134,6 +144,12 @@ public class Alimentos extends AppCompatActivity {
     private void moveToActivity_main() {
         Intent intent = new Intent (Alimentos.this,MainActivity.class);
         startActivity(intent);
+    }
+
+    private void moveToactivity_editar_alimentos(){
+        Intent intent = new Intent (Alimentos.this,EditarAlimentos.class);
+        startActivity(intent);
+
 
     }
 }

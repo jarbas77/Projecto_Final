@@ -7,57 +7,21 @@
     tools:context=".EditarAlimentos">
 
     <TextView
-        android:id="@+id/et_Prota"
-        android:layout_width="189dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Acucar" />
-
-    <TextView
-        android:id="@+id/et_Acucar"
-        android:layout_width="189dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Gordura" />
-
-    <TextView
-        android:id="@+id/et_Gordura"
-        android:layout_width="189dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_valEnerg" />
-
-    <TextView
-        android:id="@+id/et_nomeAlimento"
-        android:layout_width="189dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tv_nomeAlimento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="77dp"
         android:text="Nome Alimento"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_back" />
 
     <TextView
         android:id="@+id/tv_valEnerg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="68dp"
         android:text="Valor Energético"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_nomeAlimento" />
@@ -66,8 +30,8 @@
         android:id="@+id/tv_Gordura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="51dp"
         android:text="Gordura"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_valEnerg" />
@@ -75,9 +39,9 @@
     <TextView
         android:id="@+id/tv_Acucar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="96dp"
         android:text="Açucar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_Gordura" />
@@ -85,27 +49,89 @@
     <TextView
         android:id="@+id/tv_Prota"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="64dp"
         android:text="Proteína"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_Acucar" />
 
-    <TextView
+    <Button
+        android:id="@+id/btn_addAlimento"
+        android:layout_width="110dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="154dp"
+        android:text="Submeter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Prota" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Voltar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_nomeAlimento"
+        android:layout_width="186dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
         android:id="@+id/et_valEnerg"
-        android:layout_width="189dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="186dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_nomeAlimento" />
 
-    <Button
-        android:id="@+id/btn_addAlimento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="256dp" />
+    <EditText
+        android:id="@+id/et_Gordura"
+        android:layout_width="187dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_valEnerg" />
+
+    <EditText
+        android:id="@+id/et_Acucar"
+        android:layout_width="174dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Gordura" />
+
+    <EditText
+        android:id="@+id/et_Prota"
+        android:layout_width="178dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Acucar" />
+
 </android.support.constraint.ConstraintLayout>

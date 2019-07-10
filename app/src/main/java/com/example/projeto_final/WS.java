@@ -139,8 +139,6 @@ import java.util.HashMap;
        // if (pDialog.isShowing())
          //   pDialog.dismiss();
 
-
-
         ListAdapter adapter = new SimpleAdapter(activity, _listaAlimento, R.layout.listview_row,
                 new String[]{"idAlim", "nome", "valenergetico", "gordura", "acucar", "protaina"},
                 new int[]{R.id.tv_idAlimentos, R.id.tv_NomeAli,R.id.tv_ValEnerg, R.id.tv_Gordura, R.id.tv_Acucar, R.id.tv_Prota});
@@ -160,13 +158,18 @@ public class WS extends AsyncTask<Void, Void, String> {
     }
 
     @Override
+    protected void onPreExecute(){
+        super.onPreExecute();
+    }
+
+    @Override
     protected String doInBackground(Void... voids) {
         HttpURLConnection conexao;
         InputStream is;
         String jsonStr = null;
 
         try {
-            URL _endpoint = new URL("http://192.168.7.1/meals/public/api/alimentos");
+            URL _endpoint = new URL("http://10.0.2.2/meals/public/api/alimentos");
             conexao = (HttpURLConnection) _endpoint.openConnection();
             conexao.setRequestMethod("GET");
             conexao.setReadTimeout(15000);

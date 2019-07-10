@@ -1,5 +1,7 @@
 package com.example.projeto_final;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import org.json.JSONObject;
 public class EditarAlimentos extends AppCompatActivity {
     private Button btnEditar;
     private String id;
+    private Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,32 +24,41 @@ public class EditarAlimentos extends AppCompatActivity {
 
         btnEditar = findViewById(R.id.btn_addAlimento);
 
+        btnBack = findViewById(R.id.btn_back);
+
         btnEditar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    enviarCliente();
+                    enviarAlimento();
+                }
+            });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    moveToactivity_alimentos();
                 }
             });
 
         id = getIntent().getStringExtra("ID");//temos que verDisto!!!!!
         }
 
-        void enviarCliente(){
+        void enviarAlimento(){
 
-            EditText editTextNome = findViewById(R.id.et_nomeAlimento);
-            String nomealimento = editTextNome.getText().toString();
+            @SuppressLint("WrongViewCast") EditText editTextAlimento = findViewById(R.id.et_nomeAlimento);
+            String nomealimento = editTextAlimento.getText().toString();
 
-            EditText editTextNomePerfil = findViewById(R.id.et_valEnerg);
-            String valorEnergetico = editTextNomePerfil.getText().toString();
+            @SuppressLint("WrongViewCast") EditText editTextValorEnergetico = findViewById(R.id.et_valEnerg);
+            String valorEnergetico = editTextValorEnergetico.getText().toString();
 
-            EditText editTextMorada = findViewById(R.id.et_Gordura);
-            String gordura = editTextMorada.getText().toString();
+            @SuppressLint("WrongViewCast") EditText editTextGordura = findViewById(R.id.et_Gordura);
+            String gordura = editTextGordura.getText().toString();
 
-            EditText editTextContribuinte = findViewById(R.id.et_Acucar);
-            String acucar = editTextContribuinte.getText().toString();
+            @SuppressLint("WrongViewCast") EditText editTextAcucar = findViewById(R.id.et_Acucar);
+            String acucar = editTextAcucar.getText().toString();
 
-            EditText editTextContacto = findViewById(R.id.et_Prota);
-            String proteina = editTextContacto.getText().toString();
+            @SuppressLint("WrongViewCast") EditText editTextProta = findViewById(R.id.et_Prota);
+            String proteina = editTextProta.getText().toString();
 
             JSONObject json = new JSONObject();
 
@@ -73,6 +85,17 @@ public class EditarAlimentos extends AppCompatActivity {
 
         private void mostarErro() {
             Snackbar.make(btnEditar, "Ocorreu um erro.", Snackbar.LENGTH_LONG).show();
+
         }
-    }
+            private void movetoactivity_alimentos(){
+                Intent intent = new Intent (EditarAlimentos.this,Alimentos.class);
+                startActivity(intent);
+            }
+
+            private void moveToactivity_alimentos(){
+                Intent intent = new Intent (EditarAlimentos.this,Alimentos.class);
+                startActivity(intent);
+
+
+            }
 }
