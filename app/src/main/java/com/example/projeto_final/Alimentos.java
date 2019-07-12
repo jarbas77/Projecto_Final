@@ -6,18 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,6 +27,7 @@ public class Alimentos extends AppCompatActivity {
     private ArrayList<HashMap<String, String>> _listaAlimentos = new ArrayList<>();
     private ListView _lv;
     private ListView lvConteudo;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class Alimentos extends AppCompatActivity {
 
         btnMove = findViewById(R.id.btn_3);
 
-        btnEditar = findViewById(R.id.btn_editCliente);
+        btnEditar = findViewById(R.id.btn_addAlimento);
 
 
 
@@ -49,10 +48,23 @@ public class Alimentos extends AppCompatActivity {
                 moveToActivity_main();
             }
         });
-        btnEditar.setOnClickListener(new View.OnClickListener() {
+       btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToactivity_editar_alimentos();
+                moveToactivity_add_alimentos();
+            }
+        });
+
+        listView =  findViewById(R.id.list_view_test);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Log.d("ClientesMenu", String.valueOf(position));
+                HashMap<String, String> itemSelecionado = _listaAlimentos.get(position);
+                String idAlim = itemSelecionado.get("idAlim");
+                abrirPerfil(idAlim);
             }
         });
 
@@ -81,7 +93,8 @@ public class Alimentos extends AppCompatActivity {
 
 
     private void carregarDados() {
-        WS wsGet = new WS("http://192.168.7.1/meals/public/api/alimentos");
+
+        WS wsGet = new WS("http://192.168.7.1/meals/public/api/alimentos/");
         wsGet.resposta = new WSResposta() {
             @Override
             public void respostaRecebida(String resposta) {
@@ -146,10 +159,25 @@ public class Alimentos extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void moveToactivity_editar_alimentos(){
-        Intent intent = new Intent (Alimentos.this,EditarAlimentos.class);
+    private void moveToactivity_add_alimentos(){
+        Intent intent = new Intent (Alimentos.this, Activity_add.class);
         startActivity(intent);
+    }
 
+    private void abrirPerfil(String id){
+        Intent editalAlimIntent = new Intent(Alimentos.this,EditarAlimentos.class);
+        editalAlimIntent.putExtra("idAlim",id);
+        startActivity(editalAlimIntent);
+    }
 
+    public void onItemClick(AdapterView<?> l, View v, int position, long id) {
+        Log.i("HelloListView", "You clicked Item: " + id + " at position:" + position);
+        // Then you start a new Activity via Intent
+        Intent intent = new Intent(Alimentos.this,EditarAlimentos.class);
+        //intent.setClass(this, ListItemDetail.class);
+       // intent.putExtra("position", position);
+        // Or / And
+       // intent.putExtra("id", id);
+        startActivity(intent);
     }
 }

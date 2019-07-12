@@ -5,22 +5,39 @@ import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.SimpleAdapter;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class EditarAlimentos extends AppCompatActivity {
     private Button btnEditar;
     private String id;
     private Button btnBack;
+    EditText editTextAlimento;
+    EditText editTextValorEnergetico;
+    EditText editTextGordura;
+    EditText editTextAcucar;
+    EditText editTextProta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_alimentos);
+
+        editTextAlimento = findViewById(R.id.et_nomeAlimento);
+        editTextValorEnergetico = findViewById(R.id.et_valEnerg);
+        editTextGordura = findViewById(R.id.et_Gordura);
+        editTextAcucar = findViewById(R.id.et_Acucar);
+        editTextProta = findViewById(R.id.et_Prota);
 
         btnEditar = findViewById(R.id.btn_addAlimento);
 
@@ -40,24 +57,41 @@ public class EditarAlimentos extends AppCompatActivity {
                 }
             });
 
-        id = getIntent().getStringExtra("ID");//temos que verDisto!!!!!
+
+        id = getIntent().getStringExtra("idAlim");
+        carregarDados(id);
+
+        Log.d("Coentro",id);
+        Log.d("Coentro","test");
+
         }
+
+    private void carregarDados(String id) {
+        WS wsGet = new WS("http://192.168.7.1/meals/public/api/alimentos/" + id);
+        wsGet.resposta = new WSResposta() {
+            @Override
+            public void respostaRecebida(String resposta) {
+                if (resposta != null) {
+                    mostrarDados(resposta);
+                } else {
+                    mostarErro();
+                }
+            }
+        };
+        wsGet.execute();
+    }
 
         void enviarAlimento(){
 
-            @SuppressLint("WrongViewCast") EditText editTextAlimento = findViewById(R.id.et_nomeAlimento);
+
             String nomealimento = editTextAlimento.getText().toString();
 
-            @SuppressLint("WrongViewCast") EditText editTextValorEnergetico = findViewById(R.id.et_valEnerg);
             String valorEnergetico = editTextValorEnergetico.getText().toString();
 
-            @SuppressLint("WrongViewCast") EditText editTextGordura = findViewById(R.id.et_Gordura);
             String gordura = editTextGordura.getText().toString();
 
-            @SuppressLint("WrongViewCast") EditText editTextAcucar = findViewById(R.id.et_Acucar);
             String acucar = editTextAcucar.getText().toString();
 
-            @SuppressLint("WrongViewCast") EditText editTextProta = findViewById(R.id.et_Prota);
             String proteina = editTextProta.getText().toString();
 
             JSONObject json = new JSONObject();
@@ -98,4 +132,29 @@ public class EditarAlimentos extends AppCompatActivity {
 
 
             }
+
+    private void mostrarDados(String json) {
+        try {
+            JSONObject obj = new JSONObject(json);
+
+            String id = obj.getString("idAlim");
+            String nome = obj.getString("alNome");
+            String valEnergetico = obj.getString("alValEnergetico");
+            String godura = obj.getString("alGordura");
+            String acucar = obj.getString("alAcucar");
+            String protaina = obj.getString("alProteina");
+
+            Log.d("Coentro",id);
+            Log.d("Coentro",nome);
+            editTextAlimento.setText(nome);
+            editTextValorEnergetico.setText(valEnergetico);
+            editTextGordura.setText(godura);
+            editTextAcucar.setText(acucar);
+            editTextProta.setText(protaina);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

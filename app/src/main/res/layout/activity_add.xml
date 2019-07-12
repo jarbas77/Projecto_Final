@@ -4,134 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditarAlimentos">
+    tools:context=".Activity_add">
 
     <TextView
-        android:id="@+id/tv_nomeAlimento"
+        android:id="@+id/tv_nomeAlimento2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="55dp"
         android:text="Nome Alimento"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_back2" />
 
     <TextView
-        android:id="@+id/tv_valEnerg"
+        android:id="@+id/tv_valEnerg2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="68dp"
         android:text="Valor Energético"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nomeAlimento" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_nomeAlimento2" />
 
     <TextView
-        android:id="@+id/tv_Gordura"
+        android:id="@+id/tv_Gordura2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="44dp"
         android:text="Gordura"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_valEnerg" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_valEnerg2" />
 
     <TextView
-        android:id="@+id/tv_Acucar"
+        android:id="@+id/tv_Acucar2"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="60dp"
         android:text="Açucar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Gordura" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Gordura2" />
 
     <TextView
-        android:id="@+id/tv_Prota"
+        android:id="@+id/tv_Prota2"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="48dp"
         android:text="Proteína"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Acucar" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Acucar2" />
 
     <Button
-        android:id="@+id/btn_addAlimento"
+        android:id="@+id/btn_addAlimento2"
         android:layout_width="110dp"
         android:layout_height="55dp"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="154dp"
-        android:text="Editar"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="145dp"
+        android:text="Submeter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Prota" />
+        app:layout_constraintTop_toBottomOf="@+id/et_Prota2" />
 
     <Button
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_back2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Voltar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_nomeAlimento"
+        android:id="@+id/et_nomeAlimento2"
         android:layout_width="186dp"
         android:layout_height="49dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_valEnerg"
+        android:id="@+id/et_valEnerg2"
         android:layout_width="186dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_nomeAlimento" />
+        app:layout_constraintTop_toBottomOf="@+id/et_nomeAlimento2" />
 
     <EditText
-        android:id="@+id/et_Gordura"
+        android:id="@+id/et_Gordura2"
         android:layout_width="187dp"
         android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_valEnerg" />
+        app:layout_constraintTop_toBottomOf="@+id/et_valEnerg2" />
 
     <EditText
-        android:id="@+id/et_Acucar"
+        android:id="@+id/et_Acucar2"
         android:layout_width="174dp"
         android:layout_height="61dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Gordura" />
+        app:layout_constraintTop_toBottomOf="@+id/et_Gordura2" />
 
     <EditText
-        android:id="@+id/et_Prota"
+        android:id="@+id/et_Prota2"
         android:layout_width="178dp"
         android:layout_height="52dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Acucar" />
-
+        app:layout_constraintTop_toBottomOf="@+id/et_Acucar2" />
 </android.support.constraint.ConstraintLayout>
