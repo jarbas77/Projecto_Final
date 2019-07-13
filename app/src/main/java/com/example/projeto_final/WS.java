@@ -169,7 +169,7 @@ public class WS extends AsyncTask<Void, Void, String> {
         String jsonStr = null;
 
         try {
-            URL _endpoint = new URL("http://10.0.2.2/meals/public/api/alimentos/");
+            URL _endpoint = new URL("http://10.0.2.2/meals1/public/api/alimentos/");
             conexao = (HttpURLConnection) _endpoint.openConnection();
             conexao.setRequestMethod("GET");
             conexao.setReadTimeout(15000);

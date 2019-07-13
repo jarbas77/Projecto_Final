@@ -48,7 +48,7 @@ public class Alimentos extends AppCompatActivity {
                 moveToActivity_main();
             }
         });
-       btnEditar.setOnClickListener(new View.OnClickListener() {
+        btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 moveToactivity_add_alimentos();
@@ -128,7 +128,7 @@ public class Alimentos extends AppCompatActivity {
                 String valEnergetico = obj.getString("alValEnergetico");
                 String godura = obj.getString("alGordura");
                 String acucar = obj.getString("alAcucar");
-                String protaina = obj.getString("alProteina");
+                String proteina = obj.getString("alProteina");
 
 
                 //lista de propriedades
@@ -138,7 +138,7 @@ public class Alimentos extends AppCompatActivity {
                 alimento.put("valenergetico", String.valueOf(valEnergetico));
                 alimento.put("gordura", String.valueOf(godura));
                 alimento.put("acucar", String.valueOf(acucar));
-                alimento.put("proteina", String.valueOf(protaina));
+                alimento.put("proteina", String.valueOf(proteina));
                 _listaAlimentos.add(alimento);
                 Log.d("banana","maca4");
             }
@@ -147,7 +147,7 @@ public class Alimentos extends AppCompatActivity {
         }
 
         ListAdapter adapter = new SimpleAdapter(this, _listaAlimentos, R.layout.listview_row,
-                new String[]{"idAlim", "nome", "valenergetico", "gordura", "acucar", "protaina"},
+                new String[]{"idAlim", "nome", "valenergetico", "gordura", "acucar", "proteina"},
                 new int[]{R.id.tv_idAlimentos, R.id.tv_NomeAli,R.id.tv_ValEnerg, R.id.tv_Gordura, R.id.tv_Acucar, R.id.tv_Prota});
         lvConteudo.setAdapter(adapter);
 

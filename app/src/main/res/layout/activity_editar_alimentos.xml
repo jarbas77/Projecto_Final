@@ -14,7 +14,7 @@
         android:layout_marginTop="77dp"
         android:text="Nome Alimento"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Back3" />
 
     <TextView
         android:id="@+id/tv_valEnerg"
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_Prota" />
 
     <Button
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_Back3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"

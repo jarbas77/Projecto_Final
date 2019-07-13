@@ -15,13 +15,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class WSPUT extends AsyncTask<Void, Void, String> {
+public class WSPOST extends AsyncTask<Void, Void, String> {
     private String url;
     private JSONObject objecto;
 
     public WSResposta resposta;
 
-    public WSPUT(JSONObject objecto) {
+    public WSPOST(JSONObject objecto) {
 
         this.objecto = objecto;
     }
@@ -37,9 +37,9 @@ public class WSPUT extends AsyncTask<Void, Void, String> {
         String jsonStr = null;
 
         try {
-            URL _endpoint = new URL("http://10.0.2.2/meals/public/api/alimentos");
+            URL _endpoint = new URL("http://10.0.2.2/meals1/public/api/alimentos");
             conexao = (HttpURLConnection) _endpoint.openConnection();
-            conexao.setRequestMethod("PUT");
+            conexao.setRequestMethod("POST");
             conexao.setReadTimeout(15000);
             conexao.setConnectTimeout(15000);
             conexao.setRequestProperty("Content-Type", "application/json;");

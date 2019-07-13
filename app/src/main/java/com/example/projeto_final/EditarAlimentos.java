@@ -1,6 +1,5 @@
 package com.example.projeto_final;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,14 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
 
 public class EditarAlimentos extends AppCompatActivity {
     private Button btnEditar;
@@ -41,7 +35,7 @@ public class EditarAlimentos extends AppCompatActivity {
 
         btnEditar = findViewById(R.id.btn_addAlimento);
 
-        btnBack = findViewById(R.id.btn_back);
+        btnBack = findViewById(R.id.btn_Back3);
 
         btnEditar.setOnClickListener(new View.OnClickListener() {
                 @Override

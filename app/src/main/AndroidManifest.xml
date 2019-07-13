@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity_add"></activity>
+        <activity android:name=".Activity_addRefeicoes"></activity>
+        <activity android:name=".Activity_add" />
         <activity android:name=".EditarAlimentos" />
         <activity android:name=".Refeicoes" />
         <activity android:name=".Alimentos" />

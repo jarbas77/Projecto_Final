@@ -11,8 +11,6 @@ import android.widget.EditText;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
-
 public class Activity_add extends AppCompatActivity {
 
     private Button btnBack;
@@ -74,7 +72,7 @@ public class Activity_add extends AppCompatActivity {
             json.put("alAcucar",acucar);
             json.put("alProteina",proteina);
 
-            WSPUT put = new WSPUT(json);
+            WSPOST put = new WSPOST(json);
             put.resposta = new WSResposta() {
                 @Override
                 public void respostaRecebida(String resposta) {
